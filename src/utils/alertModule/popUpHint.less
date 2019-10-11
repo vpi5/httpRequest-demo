@@ -1,0 +1,49 @@
+
+/*
+
+  以下为 popUpHint 属性弹框 相关 css 样式配置
+
+*/
+
+:global{
+
+  #popUpHint{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+
+    .popUpHint_content{
+      position: absolute;
+      left: 15px;
+      top: calc(~'50%' - 100px);
+      width: calc(~'100%' - 30px);
+      height: 200px;
+      background: #FFF;
+      border-radius: 5px;
+      text-align: center;
+
+      .popUpHint_content_top, .popUpHint_content_bottom{
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid #999999;
+        line-height: 50px;
+      }
+
+      .popUpHint_content_center{
+        width: 100%;
+        height: calc(~'100%' - 100px);
+        background: red;
+      }
+
+      .popUpHint_content_bottom{
+        border: 0;
+      }
+    }
+  }
+
+}

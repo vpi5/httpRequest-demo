@@ -2,13 +2,14 @@ import React from 'react';
 import * as styles from './style.less';
 import ajax from '../../utils/ajax';
 import axiosHttp from '../../utils/axios';
+import alertModule from '../../utils/alertModule';
 
 
 export default class PageHome extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            data : ''
+            data : '',
         };
     }
 
@@ -38,8 +39,8 @@ export default class PageHome extends React.Component{
         let {data} = this.state;
         console.log(data, '=======');
         return (
-            <div ref={(ref) => {this.homeRef = ref}}>
-                Lorem ipsum dolor.
+            <div onClick={() => {alertModule.popUpHint(true);}} ref={(ref) => {this.homeRef = ref}}>
+                Lorem ipsum dolor.QUERQ
             </div>
         )
     }
