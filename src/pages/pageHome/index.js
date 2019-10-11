@@ -29,14 +29,16 @@ export default class PageHome extends React.Component{
             this.setState({
                 data : res
             });
-        })
+        });
+
+        this.homeRef.style.cssText = 'color:red;height:50px;background:#CCC;'
     }
 
     render (){
         let {data} = this.state;
         console.log(data, '=======');
         return (
-            <div>
+            <div ref={(ref) => {this.homeRef = ref}}>
                 Lorem ipsum dolor.
             </div>
         )
