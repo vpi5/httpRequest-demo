@@ -10,31 +10,38 @@
   height: 100%;
   background: rgba(0,0,0,.3);
 
-  .PopUpAlert_content{
-    position: absolute;
-    left: 15px;
-    top: calc(~'50%' - 100px);
-    width: calc(~'100%' - 30px);
-    height: 200px;
-    background: #FFF;
-    border-radius: 5px;
-    text-align: center;
+  .alertBody{
+    width: 100%;
+    height: 100%;
 
-    .PopUpAlert_content_top, .PopUpAlert_content_bottom{
-      width: 100%;
-      height: 50px;
-      border-bottom: 1px solid #999999;
-      line-height: 50px;
-    }
+    .PopUpAlert_content{
+      position:absolute;
+      top:50%;
+      left:15px;
+      width: calc(100% - 30px);
+      border-radius: 5px;
+      -webkit-transform:translate(0,-50%);
+      -moz-transform:translate(0,-50%);
+      transform:translate(0,-50%);
+      background: #FFF;
+      text-align: center;
 
-    .PopUpAlert_content_center{
-      width: 100%;
-      height: calc(~'100%' - 100px);
-      background: red;
-    }
+      .PopUpAlert_content_top, .PopUpAlert_content_bottom{
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid #999999;
+        line-height: 50px;
+      }
 
-    .PopUpAlert_content_bottom{
-      border: 0;
+      .PopUpAlert_content_center{
+        height: calc(~'100%' - 100px);
+        background: red;
+        padding: 20px 10px;
+      }
+
+      .PopUpAlert_content_bottom{
+        border: 0;
+      }
     }
   }
 }

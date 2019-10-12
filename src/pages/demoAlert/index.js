@@ -9,7 +9,7 @@ export default class DemoAlert extends React.Component {
 
     open = () => {
         let data = {
-            name : '张三',
+            name : '张三 lorem3  张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3    ',
             age : '18'
         };
         popUpAlert.open({

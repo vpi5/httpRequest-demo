@@ -36,10 +36,12 @@ class PopUpAlert extends React.Component{
         let {alertStatus, alertTip} = this.state;
         return (
             <div className={`${styles.PopUpAlert}`} style={{display : alertStatus ? 'block' : 'none'}}>
-                <div className={`${styles.PopUpAlert_content} bounceInDown animated`}>
-                    <div className={styles.PopUpAlert_content_top}>{'1111111'}</div>
-                    <div className={styles.PopUpAlert_content_center}>{alertTip.name}</div>
-                    <div onClick={this.confirm} className={styles.PopUpAlert_content_bottom}>{'确定'}</div>
+                <div className={`${styles.alertBody} fadeInDown animated`}>
+                    <div className={`${styles.PopUpAlert_content}`}>
+                        <div className={styles.PopUpAlert_content_top}>{'温馨提示'}</div>
+                        <div className={styles.PopUpAlert_content_center}>{alertTip.name}</div>
+                        <div onClick={this.confirm} className={styles.PopUpAlert_content_bottom}>{'确定'}</div>
+                    </div>
                 </div>
             </div>
         )
