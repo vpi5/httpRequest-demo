@@ -3,6 +3,7 @@ import * as styles from './style.less';
 import ajax from '../../utils/ajax';
 import axiosHttp from '../../utils/axios';
 import alertModule from '../../utils/alertModule';
+import popUpAlert from "../../utils/alertModule/popUpAlert";
 
 
 export default class PageHome extends React.Component{
@@ -35,11 +36,25 @@ export default class PageHome extends React.Component{
         this.homeRef.style.cssText = 'color:red;height:50px;background:#CCC;'
     }
 
+    open1 = () => {
+        let data = {
+            name : '这萨达哈看到吗看了会发觉咖喱你噶开关机浪啊看来你刚卡了刚卡了呢东海大健康的哈市好法国开朗放开那kg阿卡丽',
+            age : '18'
+        };
+        popUpAlert.open({
+            alertTip : data,
+            closeAlert : function(data){
+                console.log("关闭了...", data);
+            }
+        });
+    };
+
     render (){
         let {data} = this.state;
         console.log(data, '=======');
+        //  onClick={() => {alertModule.popUpHint(true);}}
         return (
-            <div onClick={() => {alertModule.popUpHint(true);}} ref={(ref) => {this.homeRef = ref}}>
+            <div onClick={ () => {this.open1()}} ref={(ref) => {this.homeRef = ref}}>
                 Lorem ipsum dolor.QUERQ
             </div>
         )

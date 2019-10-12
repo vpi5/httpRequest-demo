@@ -1,32 +1,34 @@
 import React from 'react';
-import popUpAlert from "../../utils/alertModule/popUpAlert";
+import {LayoutApp} from "../../components/layout";
 
 export default class DemoAlert extends React.Component {
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            isShow : false,
+            alertData : {
+                type : 'init',
+                message : '这是一个 init 类型的弹框',
+                alertChange : this.handleAlertChange
+            }
+        };
     }
 
-    open = () => {
-        let data = {
-            name : '张三 lorem3  张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3   张三 lorem3    ',
-            age : '18'
-        };
-        popUpAlert.open({
-            alertTip : data,
-            closeAlert : function(data){
-                console.log("关闭了...", data);
-            }
-        });
+    handleAlertChange = (data) => {
+        this.setState({
+            isShow : false
+        })
     };
 
     render() {
+        let {isShow, alertData} = this.state;
         return (
-            <div>
-                <button onClick={this.open}>
-                    开启宝藏
-                </button>
-            </div>
+            <LayoutApp
+                isAlert={isShow}
+                alertData={alertData}
+            >
+                <div onClick={()=> {this.setState({ isShow : true})}}>Lorem ipsum dolor.111111111111111111</div>
+            </LayoutApp>
         );
     }
 }
