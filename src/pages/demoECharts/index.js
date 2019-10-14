@@ -1,6 +1,6 @@
 import React from 'react';
 import echarts from 'echarts';
-import {canvasDom} from "./canvasDom";
+import {graphicAnalysis} from "./graphicAnalysis";
 
 
 export default class DemoECharts extends React.Component{
@@ -35,12 +35,34 @@ export default class DemoECharts extends React.Component{
             }]
         });
 
+        // 划线
+        chart.setOption({
+            graphic : {
+                id : 'guides',
+                elements : [
+                    {type : 'line', left : 10, top : 50, id : 'line', z : 1, shape: {
+                            x1: 50,
+                            y1: 0,
+                            x2: 0,
+                            y2: 50,},style:{stroke : '#FF0000', lineWidth : 1}}
+                ]
+            }
+        });
+
+        // 文本
+        chart.setOption({
+            graphic : {
+                id : 'text',
+                elements : [
+                    {
+                        id:'0', type: 'text', z:800, left: '5px', top: '20px',
+                        style: {text: '这是一个测试文本', fill: '#000'}
+                    }
+                ]
+            }
+        });
+
         this.chartECharts = chart;
-
-        console.log(this.chartECharts);
-        console.log(this.chartECharts.getDom().getElementsByTagName('canvas')[0]);
-
-        canvasDom(this.chartECharts.getDom().getElementsByTagName('canvas')[0]);
 
         //绑定resize
         let self = this;
@@ -54,6 +76,27 @@ export default class DemoECharts extends React.Component{
         window.addEventListener("resize", this.resizeEvent);
     }
 
+    handleChartClick = () => {
+        let data = graphicAnalysis(this.chartECharts, {type : 'graphic', typeId : 'cursor'});
+        data.elements[0] = {
+            type : 'line', left : 80,
+            top : 100, id : 'line2', z : 1,
+            shape: {
+                x1: 0,
+                y1: 0,
+                x2: 0,
+                y2: 50
+            },
+            style : {
+                stroke : '#FF0000', lineWidth : 1
+            }
+        };
+        this.chartECharts.setOption({
+            graphic : data
+        });
+    };
+
+
     componentWillUnmount(){
         window.removeEventListener("resize", this.resizeEvent);
     }
@@ -61,7 +104,12 @@ export default class DemoECharts extends React.Component{
     render () {
         let sty = {width : '100%', height : '350px'};
         return (
-            <div style={sty} ref={(ref)=>{this.chartDome = ref}}/>
+            <div>
+                <div style={sty} ref={(ref)=>{this.chartDome = ref}}/>
+                <div onClick={this.handleChartClick}>
+                    Lorem ipsum dolor.
+                </div>
+            </div>
         )
     }
 }
