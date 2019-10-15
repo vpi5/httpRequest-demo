@@ -50,9 +50,6 @@ export default class PageHome extends React.Component{
     };
 
     render (){
-        let {data} = this.state;
-        console.log(data, '=======');
-        //  onClick={() => {alertModule.popUpHint(true);}}
         return (
             <div onClick={ () => {this.open1()}} ref={(ref) => {this.homeRef = ref}}>
                 Lorem ipsum dolor.QUERQ

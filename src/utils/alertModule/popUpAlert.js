@@ -34,6 +34,7 @@ class PopUpAlert extends React.Component{
 
     render(){
         let {alertStatus, alertTip} = this.state;
+        console.log(this.state);
         return (
             alertStatus ?
                 <div className={`${styles.PopUpAlert}`} style={{display : alertStatus ? 'block' : 'none'}}>

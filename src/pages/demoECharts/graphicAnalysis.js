@@ -6,9 +6,9 @@
 *
 *   解析 ECharts option 中相关配置信息 并返回订阅的键值(key)
 *
-*   传递参数说明  ： (绑定 ECharts 的图形元素， 获取的相关配置项 key {type ==> {type : 查询的 key typeId : 查询的Key 中的子项} })
+*   key 参数 对象的方式 包含 type 和 typeId
 *
-*   出参说明 ： 返回当前 图表 中的 ==> 数组 list 的格式  特殊的格式 ：{graphic 除外 ==> 包含当前自定义 id 和 数组list}
+*   出参说明 ： 返回当前 图表 中的 ==> 数组 list 的格式  特殊的格式 ：graphic 除外 ==> 包含当前自定义 id 和 数组list
 *
 */
 
@@ -30,7 +30,7 @@ export let graphicAnalysis = function (chart, key) {
                 }
             }
             console.warn('获取ECharts option配置项时抛出异常：', '所要查询的 key 键值匹配失败！系统方法默认返回对应 空 对象');
-            return {elements : {}};
+            return {id : key.typeId, elements : {}};
         default :
             let data = chart.getOption()[key.type];
             if(typeof data === 'undefined'){
