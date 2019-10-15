@@ -21,25 +21,21 @@ export default class PageHome extends React.Component{
         urlData.companyId = 3;
         urlData.sourceId = 2;
 
-        /*ajax.POST('', urlData, (res) => {
-            this.setState({
-                data : res
-            })
-        })*/
+        /*ajax.post('', urlData, (res) => {
+            console.log(res)
+        });
 
-        ajax.GET('', urlData, (res) => {
+        ajax.get('', urlData, (res) => {
             console.log(res)
         });
 
         ajaxHttp.POST('', urlData, (res) => {
-            this.setState({
-                data : res
-            });
+            console.log(res)
         });
 
         ajaxHttp.GET('', urlData, (res) => {
-            //console.log(res)
-        });
+            console.log(res)
+        });*/
 
         this.homeRef.style.cssText = 'color:red;height:50px;background:#CCC;'
     }
