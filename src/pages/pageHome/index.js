@@ -1,7 +1,7 @@
 import React from 'react';
 import * as styles from './style.less';
 import ajax from '../../utils/ajax';
-import axiosHttp from '../../utils/axios';
+import ajaxHttp from '../../utils/axios';
 import alertModule from '../../utils/alertModule';
 import popUpAlert from "../../utils/alertModule/popUpAlert";
 
@@ -27,10 +27,18 @@ export default class PageHome extends React.Component{
             })
         })*/
 
-        axiosHttp.POST('', urlData, (res) => {
+        ajax.GET('', urlData, (res) => {
+            console.log(res)
+        });
+
+        ajaxHttp.POST('', urlData, (res) => {
             this.setState({
                 data : res
             });
+        });
+
+        ajaxHttp.GET('', urlData, (res) => {
+            //console.log(res)
         });
 
         this.homeRef.style.cssText = 'color:red;height:50px;background:#CCC;'

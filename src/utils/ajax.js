@@ -22,6 +22,20 @@ class Ajax {
         })
     };
 
+    GET = (url, data, callBack) => {
+        $.ajax({
+            type : 'get',
+            url : apiUrl(url),
+            data : data,
+            success : function (data) {
+                callBack(data);
+            },
+            error : function (err) {
+                alert('发生错误！', err)
+            }
+        })
+    };
+
 }
 const ajax = new Ajax();
 

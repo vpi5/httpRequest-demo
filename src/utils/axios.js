@@ -47,7 +47,7 @@ function apiAxios (method, url, params) {
     })
 }
 
-class AxiosHttp {
+class AjaxHttp {
 
     POST = (url, data, callBack) => {
         apiAxios('POST', url, data)
@@ -56,7 +56,14 @@ class AxiosHttp {
             })
     };
 
-}
-const axiosHttp = new AxiosHttp();
+    GET = (url, data, callBack) => {
+        apiAxios('GET', url, data)
+            .then(res => {
+                callBack(res);
+            })
+    }
 
-export default axiosHttp;
+}
+const ajaxHttp = new AjaxHttp();
+
+export default ajaxHttp;
