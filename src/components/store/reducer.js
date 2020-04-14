@@ -1,7 +1,8 @@
 import { DELETE_TODO_ITEM } from './actionTypes' //导入 actionTypes 常量
 //库默认数据
 const defaultState = {
-    data : ['我是郭靖','我是黄老邪','我是黄蓉']
+    classDemoList : ['我是郭靖','我是黄老邪','我是黄蓉'],
+    data : ['1', '2', '3']
 };
 
 //返回数据
@@ -16,7 +17,7 @@ export default (state = defaultState, action) => {
     // 监听 callback 存在 使用 callback 处理数据
     if(action.callback){
         return {
-            data : action.callback(newState.data)
+            ...action.callback(newState)
         };
     }
     // 原样返回 数据
